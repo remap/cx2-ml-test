@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object detector</title>
+</head>
+<body>
+<!-- 
+<video controls style="display:none" src="sample.mp4"></video>
+ -->
+<video id="cam"  style="display:none"  controls muted autoplay></video>
+
+<br/>
+
+<script type="text/javascript">
+    //Selector for your <video> element
+    const camvid = document.querySelector('#cam');
+
+    //Core
+    window.navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            camvid.srcObject = stream;
+            camvid.onloadedmetadata = (e) => {
+                camvid.play();
+            };
+        })
+        .catch( () => {
+            alert('You have give browser the permission to run Webcam and mic ;( ');
+        });
+
+</script>
+
+<canvas></canvas><br/>
+<button id="play">Play</button>&nbsp;
+<button id="pause">Pause</button>
+<script src="object_detector.js" defer></script>
+</body>
+</html>
