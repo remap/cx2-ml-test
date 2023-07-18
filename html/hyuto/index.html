@@ -1,1 +1,47 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Object Segmentation Application using YOLOv8 and ONNXRUNTIME"/><link rel="apple-touch-icon" href="logo192.png"/><link rel="manifest" href="manifest.json"/><title>YOLOv8 Object Segmentation App</title><script defer="defer" src="static/js/main.31f2849c.js"></script><link href="static/css/main.86524d2f.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <link rel="icon" href="favicon.ico"/>
+      <meta name="viewport" content="width=device-width,initial-scale=1"/>
+      <meta name="theme-color" content="#000000"/>
+      <meta name="description" content="Object Segmentation Application using YOLOv8 and ONNXRUNTIME"/>
+      <link rel="apple-touch-icon" href="logo192.png"/>
+      <link rel="manifest" href="manifest.json"/>
+      
+<video id="cam"  style="display:none"  controls muted autoplay></video>
+
+<br/>
+
+<script type="text/javascript">
+    //Selector for your <video> element
+    const camvid = document.querySelector('#cam');
+    //Core
+    window.navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            camvid.srcObject = stream;
+            camvid.onloadedmetadata = (e) => {
+                camvid.play();
+            };
+        })
+        .catch( () => {
+            alert('You have give browser the permission to run Webcam and mic ;( ');
+        });
+</script>
+<canvas></canvas><br/>
+
+      <title>YOLOv8 Object Segmentation App</title>
+      <script defer="defer" src="static/js/main.31f2849c.js"></script>
+      <link href="static/css/main.86524d2f.css" rel="stylesheet">
+   </head>
+   <body>
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root"></div>
+   </body>
+</html>
+
+
+
+
+
+
